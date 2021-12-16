@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Web3 from "web3";
 import logo from "../logo.png";
 import "./App.css";
-import Marketplace from "../abis/Marketplace.json";
+import Thread from "../abis/Thread.json";
 import Navbar from "./Navbar";
 import Main from "./Main";
 
@@ -31,41 +31,57 @@ class App extends Component {
     const accounts = await web3.eth.getAccounts();
     this.setState({ account: accounts[0] });
     const networkId = await web3.eth.net.getId();
-    const networkData = Marketplace.networks[networkId];
+    const networkData = Thread.networks[networkId];
     if (networkData) {
-      const marketplace = web3.eth.Contract(
-        Marketplace.abi,
+      const thread = web3.eth.Contract(
+        Thread.abi,
         networkData.address
       );
-      this.setState({ marketplace });
-      // const productCount = await marketplace.methods.productCount().call()
-      // console.log(productCount.toString())
-      this.setState({ loading: false });
+      const replyCount = await thread.methods.replyCount().call()
+
+      console.log('replyCount.toNumber() :>> ', replyCount.toNumber());
+      this.setState({ loading: false, replyCount, thread }, () => { this.getSetReplies() });
     } else {
-      window.alert("Marketplace contract not deployed to detected network.");
+      window.alert("Thread contract not deployed to detected network.");
     }
+  }
+
+  async getSetReplies() {
+    const replies = []
+    for (let i = 0; i < this.state.replyCount; i++) {
+      const reply = await this.state.thread.methods.replies(i).call()
+
+      console.log('reply :>> ', reply);
+      replies.push(reply)
+    }
+
+    this.setState({ replies })
   }
 
   constructor(props) {
     super(props);
     this.state = {
+      thread: null,
       account: "",
-      productCount: 0,
-      products: [],
+      replyCount: 0,
+      replies: [],
       loading: true,
+      message: "",
     };
 
-    this.createProduct = this.createProduct.bind(this);
+    this.addReply = this.addReply.bind(this);
+    this.getSetReplies = this.getSetReplies.bind(this)
   }
 
-  createProduct(name, price) {
+  addReply(replyContent) {
     this.setState({ loading: true });
-    this.state.marketplace.methods
-      .createProduct(name, price)
+    this.state.thread.methods
+      .addReply(replyContent)
       .send({ from: this.state.account })
-      .once("receipt", (receipt) => {
+      .once("receipt", (_receipt) => {
         this.setState({ loading: false });
       });
+
   }
 
   render() {
@@ -80,7 +96,25 @@ class App extends Component {
                   <p className="text-center">Loading...</p>
                 </div>
               ) : (
-                <Main createProduct={this.createProduct} />
+
+                <div>
+                  <div>
+                    <h1>stuff</h1>
+                    <input onChange={(e) => this.setState({ message: e.target.value })} /><button onClick={() => this.addReply(this.state.message)}>Submit</button>
+                  </div>
+
+                  <div>
+                    {this.state.replies.map(({ poster, content }, i) => (
+                      <div>
+                        <p>{poster}</p>
+                        <p>{content}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+
+                // <Main createProduct={this.createProduct} />
               )}
             </main>
           </div>
