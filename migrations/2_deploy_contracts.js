@@ -1,5 +1,5 @@
-const Marketplace = artifacts.require("Marketplace");
+const Thread = artifacts.require("Thread");
 
-module.exports = function(deployer) {
-  deployer.deploy(Marketplace);
+module.exports = function (deployer) {
+  deployer.deploy(Thread);
 };
