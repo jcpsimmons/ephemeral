@@ -43,25 +43,31 @@ export default function App2() {
     const networkId = await web3.eth.net.getId();
     const networkData = Thread.networks[networkId];
     if (networkData) {
-      const thread = web3.eth.Contract(Thread.abi, networkData.address);
+      const thread = new web3.eth.Contract(Thread.abi, networkData.address);
       const replyCount = await thread.methods.replyCount().call();
 
-      setReplyCount(replyCount.toNumber());
+      setReplyCount(replyCount);
       setThread(thread);
-      getSetReplies(thread, replyCount.toNumber());
+      getSetReplies(thread, replyCount);
     } else {
       window.alert('Thread contract not deployed to detected network.');
     }
   };
 
   const getSetReplies = async (curThread, howMany) => {
+    console.log('getSetReplies');
     const replies = [];
-    for (let i = howMany + 1; i > -1; i--) {
+    for (let i = howMany; i > -1; i--) {
       const reply = await curThread.methods.replies(i).call();
-      replies.push(reply);
+      reply.poster !== '0x0000000000000000000000000000000000000000' &&
+        replies.push(reply);
     }
 
+    const replyCount = await curThread.methods.replyCount().call();
+
+    console.log('replies :>> ', replies);
     setReplies(replies);
+    setReplyCount(replyCount);
     setIsLoading(false);
   };
 
@@ -70,14 +76,15 @@ export default function App2() {
     await thread.methods
       .addReply(currentMessage)
       .send({ from: accountAddy })
-      .on('receipt', function(receipt) {
-        console.log('receipt');
-        alert('Reply added!');
-      });
-
-    setCurrentMessage('');
-    getSetReplies();
-    setIsLoading(false);
+      .once('confirmation', () => {
+        console.log('CONFIRMED');
+      })
+      .then(() => {
+        setCurrentMessage('');
+        getSetReplies(thread, replyCount + 1);
+        setIsLoading(false);
+      })
+      .catch(console.log);
   };
 
   return (
