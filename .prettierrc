@@ -1,0 +1,21 @@
+{
+  "tabWidth": 2,
+  "useTabs": false,
+  "semi": true,
+  "printWidth": 80,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "importOrder": [
+    "^react$|react-dom$",
+    "<THIRD_PARTY_MODULES>",
+    "/organisms/|/molecules/|/atoms/",
+    "/hooks/",
+    "/constants",
+    ".module.scss$",
+    ".scss$|.css$"
+  ],
+  "importOrderSortSpecifiers": true,
+  "importOrderSeparation": true,
+  "importOrderCaseInsensitive": false,
+  "importOrderParserPlugins": ["jsx"]
+}
