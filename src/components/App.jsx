@@ -10,6 +10,7 @@ import ReplyList from './molecules/ReplyList';
 export default function App2() {
   const [isLoading, setIsLoading] = useState(true);
   const [thread, setThread] = useState(null);
+  const [exchangeRate, setExchangeRate] = useState(null);
   const [accountAddy, setAccountAddy] = useState('');
   const [replyCount, setReplyCount] = useState(0);
   const [replies, setReplies] = useState([]);
@@ -20,7 +21,9 @@ export default function App2() {
       await loadWeb3();
       await loadBlockchainData();
     };
+
     init();
+    getExchangeRate();
   }, []);
 
   const loadWeb3 = async () => {
@@ -53,6 +56,15 @@ export default function App2() {
     } else {
       window.alert('Thread contract not deployed to detected network.');
     }
+  };
+
+  const getExchangeRate = async () => {
+    const res = await fetch(
+      'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd'
+    );
+    const data = await res.json();
+
+    setExchangeRate(data.ethereum.usd);
   };
 
   const getSetReplies = async (curThread, howMany) => {
@@ -90,21 +102,19 @@ export default function App2() {
   return (
     <div>
       <Navbar account={accountAddy} replyCount={replyCount} />
-      <div className="container-fluid mt-5">
-        <div className="row">
-          <main role="main" className="col-lg-12 d-flex">
+      <div>
+        <div>
+          <main role="main">
             {isLoading ? (
-              <div id="loader" className="text-center">
-                <p className="text-center">Loading...</p>
+              <div id="loader">
+                <p>Loading...</p>
               </div>
             ) : (
               <div>
-                <ReplyList {...{ replies }} />
+                <ReplyList {...{ replies, exchangeRate }} />
 
                 <NewPost {...{ setCurrentMessage, currentMessage, addReply }} />
               </div>
-
-              // <Main createProduct={this.createProduct} />
             )}
           </main>
         </div>

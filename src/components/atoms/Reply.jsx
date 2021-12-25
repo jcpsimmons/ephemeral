@@ -3,7 +3,7 @@ import cn from 'classnames';
 import styles from './Reply.module.scss';
 import GiftPopover from './GiftPopover';
 
-export default function Reply({ poster, content }) {
+export default function Reply({ poster, content, exchangeRate }) {
   const [isGiftPopover, setIsGiftPopover] = useState(false);
 
   const handleAddressClick = () => {
@@ -20,7 +20,11 @@ export default function Reply({ poster, content }) {
       </p>
       <p>{content}</p>
       {isGiftPopover && (
-        <GiftPopover address={poster} setIsGiftPopover={setIsGiftPopover} />
+        <GiftPopover
+          address={poster}
+          setIsGiftPopover={setIsGiftPopover}
+          exchangeRate={exchangeRate}
+        />
       )}
     </div>
   );
