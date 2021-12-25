@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
-import logo from '../logo.png';
-import './App.css';
+import './App.scss';
 import Thread from '../abis/Thread.json';
 import Navbar from './molecules/Navbar.jsx';
-import Main from './Main';
+import '@fontsource/ubuntu-mono';
+import NewPost from './molecules/NewPost';
+import ReplyList from './molecules/ReplyList';
 
 export default function App2() {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,12 +56,11 @@ export default function App2() {
   };
 
   const getSetReplies = async (curThread, howMany) => {
-    console.log('getSetReplies');
     const replies = [];
     for (let i = howMany; i > -1; i--) {
       const reply = await curThread.methods.replies(i).call();
       reply.poster !== '0x0000000000000000000000000000000000000000' &&
-        replies.push(reply);
+        replies.unshift(reply);
     }
 
     const replyCount = await curThread.methods.replyCount().call();
@@ -99,21 +99,9 @@ export default function App2() {
               </div>
             ) : (
               <div>
-                <div>
-                  <input onChange={e => setCurrentMessage(e.target.value)} />
-                  <button onClick={() => addReply(currentMessage)}>
-                    Submit
-                  </button>
-                </div>
+                <ReplyList {...{ replies }} />
 
-                <div>
-                  {replies.map(({ poster, content }, i) => (
-                    <div>
-                      <p>{poster}</p>
-                      <p>{content}</p>
-                    </div>
-                  ))}
-                </div>
+                <NewPost {...{ setCurrentMessage, currentMessage, addReply }} />
               </div>
 
               // <Main createProduct={this.createProduct} />

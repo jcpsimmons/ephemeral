@@ -1,0 +1,30 @@
+/* Styles go here */
+body {
+  padding: 2rem 4rem;
+  font-family: 'Ubuntu mono', monospace;
+  background-color: #222230;
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.bg-subdued {
+  background-color: #323246;
+  border-radius: 4px;
+  padding: 0rem 1rem;
+}
+
+.limegreen {
+  color: #24f824;
+  text-shadow: 0 0 4px #24f824;
+}
+
+.small {
+  font-size: 0.75rem;
+}
+
+.address {
+  background: #fff;
+  color: black;
+  padding: 0.1rem;
+  margin: 0.25rem 0;
+}

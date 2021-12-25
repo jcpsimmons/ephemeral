@@ -1,0 +1,10 @@
+.reply {
+  margin-bottom: 1rem;
+  position: relative;
+
+  .address {
+    transform: translateY(-50%);
+    display: inline-block;
+    cursor: pointer;
+  }
+}

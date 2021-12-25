@@ -1,15 +1,27 @@
 import React from 'react';
+import cn from 'classnames';
+import styles from './Navbar.module.scss';
 
 export default function Navbar({ account, replyCount }) {
   return (
-    <nav>
+    <nav className={cn(styles.navbar, 'bg-subdued')}>
       <div>
-        <span>Welcome to Ephemeral</span>
+        <h1>
+          Welcome to <span className="limegreen">Ephemeral</span>,
+        </h1>
       </div>
       <div>
-        <span>{account}</span>
+        <p className={cn('small', 'address')}>{account}</p>
       </div>
-      <div>Current Iteration {replyCount}/999999</div>
+      <div>
+        <p className="small">Current Iteration {replyCount}/999999</p>
+      </div>
+      <div>
+        <img
+          src={`${process.env.PUBLIC_URL}/talkingmiling.gif`}
+          alt="smiling talking gif"
+        />
+      </div>
     </nav>
   );
 }
