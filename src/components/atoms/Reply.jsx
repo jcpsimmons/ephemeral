@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import cn from 'classnames';
 import styles from './Reply.module.scss';
 import GiftPopover from './GiftPopover';
+import Tooltip from './Tooltip';
 
 export default function Reply({
   poster,
@@ -9,6 +10,7 @@ export default function Reply({
   exchangeRate,
   thread,
   accountAddy,
+  isFirst,
 }) {
   const [isGiftPopover, setIsGiftPopover] = useState(false);
 
@@ -34,6 +36,7 @@ export default function Reply({
           senderAccount={accountAddy}
         />
       )}
+      {/* {isFirst && <Tooltip />} */}
     </div>
   );
 }

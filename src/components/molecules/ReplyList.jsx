@@ -1,5 +1,6 @@
 import React from 'react';
 import Reply from '../atoms/Reply';
+import Tooltip from '../atoms/Tooltip';
 import styles from './ReplyList.module.scss';
 
 export default function ReplyList({
@@ -18,6 +19,7 @@ export default function ReplyList({
           exchangeRate={exchangeRate}
           thread={thread}
           accountAddy={accountAddy}
+          isFirst={i === 0}
         />
       ))}
     </div>
