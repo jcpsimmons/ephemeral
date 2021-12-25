@@ -77,7 +77,6 @@ export default function App2() {
 
     const replyCount = await curThread.methods.replyCount().call();
 
-    console.log('replies :>> ', replies);
     setReplies(replies);
     setReplyCount(replyCount);
     setIsLoading(false);
@@ -111,7 +110,9 @@ export default function App2() {
               </div>
             ) : (
               <div>
-                <ReplyList {...{ replies, exchangeRate }} />
+                <ReplyList
+                  {...{ replies, exchangeRate, thread, accountAddy }}
+                />
 
                 <NewPost {...{ setCurrentMessage, currentMessage, addReply }} />
               </div>

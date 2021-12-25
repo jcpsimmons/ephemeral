@@ -5,8 +5,44 @@
   padding: 0.5rem;
   background: white;
   z-index: 100;
-  top: 0;
-  left: 0;
+  width: 15rem;
+  top: 5px;
+  left: 50px;
+
+  h4 {
+    text-align: center;
+  }
+
+  .appBar {
+    margin: -0.5rem;
+    margin-left: calc(-0.5rem - 1px);
+    margin-top: calc(-0.5rem - 1px);
+    margin-right: calc(-0.5rem - 1px);
+    background: linear-gradient(45deg, blue, #7e7eff);
+    border-bottom: 1px solid black;
+    padding: 0.5rem 0.5rem 0.5rem 0;
+    display: flex;
+    justify-content: right;
+    vertical-align: middle;
+    cursor: move;
+
+    marquee {
+      user-select: none;
+      color: white;
+      line-height: 1.6;
+      animation: blink 1s linear infinite;
+    }
+
+    button {
+      cursor: pointer;
+    }
+  }
+
+  .money {
+    transform: rotate(-30deg);
+    position: absolute;
+    top: 50%;
+  }
 }
 
 .form {
@@ -16,5 +52,11 @@
 
   button {
     margin-top: 1rem;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
   }
 }

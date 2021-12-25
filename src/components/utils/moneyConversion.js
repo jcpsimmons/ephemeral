@@ -1,7 +1,5 @@
-const usdToWei = (exchangeRate, usd) => {
-  // takes USD returns wei
-  //           const price = window.web3.utils.toWei(this.productPrice.value.toString(), 'Ether')
-  return usd * exchangeRate;
+const usdToEth = (exchangeRate, usd) => {
+  return (usd / exchangeRate).toFixed(4);
 };
 
-export default { usdToWei };
+export { usdToEth };
