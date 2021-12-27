@@ -12,9 +12,11 @@
   justify-content: space-between;
   align-items: center;
   transform: translateY(-50%) translateY(-5px);
+  color: #24f824;
 
   p {
     margin-left: 1rem;
+    text-shadow: 0 0 2px #24f824;
   }
 
   .pointer {
