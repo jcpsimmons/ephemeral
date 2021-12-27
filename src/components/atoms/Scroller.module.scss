@@ -1,0 +1,18 @@
+.scroller {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 100;
+  opacity: 0.5;
+  font-size: 0.75rem;
+  transition: opacity 0.25s;
+  border-radius: 10px;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  img {
+    transform: rotate(180deg);
+  }
+}

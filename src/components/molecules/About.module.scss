@@ -1,0 +1,32 @@
+.about {
+  position: absolute;
+  right: 1rem;
+  cursor: pointer;
+}
+
+.modal {
+  color: black;
+  background: #fc9e3d;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 60ch;
+  z-index: 101;
+  box-shadow: 0 0 30px #fc9e3d;
+  overflow-y: scroll;
+  height: 50%;
+
+  .close {
+    position: sticky;
+    float: right;
+    cursor: pointer;
+  }
+
+  .content {
+    margin-top: 2rem;
+  }
+}

@@ -25,6 +25,7 @@ export default function Reply({
         onClick={handleAddressClick}
       >
         {poster}
+        {isFirst && <Tooltip />}
       </p>
       <p>{content}</p>
       {isGiftPopover && (
@@ -36,7 +37,6 @@ export default function Reply({
           senderAccount={accountAddy}
         />
       )}
-      {/* {isFirst && <Tooltip />} */}
     </div>
   );
 }

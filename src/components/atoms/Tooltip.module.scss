@@ -1,7 +1,29 @@
 .tooltip {
   position: absolute;
-  right: 0;
-  top: 10px;
+  left: 100%;
   z-index: 100;
-  background: red;
+  background: black;
+  color: white;
+  width: 10rem;
+  transform: rotate(-3deg);
+  border-radius: 10px;
+  padding: 0.25rem 1rem 0.25rem 0.25rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transform: translateY(-50%) translateY(-5px);
+
+  p {
+    margin-left: 1rem;
+  }
+
+  .pointer {
+    animation: point 1s ease-out 0s infinite;
+  }
+
+  @keyframes point {
+    50% {
+      transform: translateX(0.5rem) rotate(20deg);
+    }
+  }
 }

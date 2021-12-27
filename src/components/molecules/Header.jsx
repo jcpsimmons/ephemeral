@@ -1,10 +1,10 @@
 import React from 'react';
 import cn from 'classnames';
-import styles from './Navbar.module.scss';
+import styles from './Header.module.scss';
 
-export default function Navbar({ account, replyCount }) {
+export default function Header({ account, replyCount }) {
   return (
-    <nav className={cn(styles.navbar, 'bg-subdued')}>
+    <nav className={cn(styles.header, 'bg-subdued')}>
       <div>
         <h1>
           Welcome to <span className="limegreen">Ephemeral</span>,

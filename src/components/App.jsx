@@ -2,10 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Web3 from 'web3';
 import './App.scss';
 import Thread from '../abis/Thread.json';
-import Navbar from './molecules/Navbar.jsx';
+import Header from './molecules/Header.jsx';
 import '@fontsource/ubuntu-mono';
 import NewPost from './molecules/NewPost';
 import ReplyList from './molecules/ReplyList';
+import Scroller from './atoms/Scroller';
+import About from './molecules/About';
 
 export default function App2() {
   const [isLoading, setIsLoading] = useState(true);
@@ -100,7 +102,8 @@ export default function App2() {
 
   return (
     <div>
-      <Navbar account={accountAddy} replyCount={replyCount} />
+      <About />
+      <Header account={accountAddy} replyCount={replyCount} />
       <div>
         <div>
           <main role="main">
@@ -120,6 +123,7 @@ export default function App2() {
           </main>
         </div>
       </div>
+      <Scroller />
     </div>
   );
 }

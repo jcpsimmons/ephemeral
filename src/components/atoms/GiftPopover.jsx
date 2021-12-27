@@ -93,7 +93,14 @@ export default function GiftPopover({
               />
 
               <button type="submit">{`Send $${selectedEth}`}</button>
-              <span>{`That's ${usdToEth(exchangeRate, selectedEth)} ETH`}</span>
+              <span className={styles.ethConversion}>{`That's ${usdToEth(
+                exchangeRate,
+                selectedEth
+              )} ETH`}</span>
+              <span className={styles.disclaimer}>
+                5% of each transaction goes to the webmaster for maintenance and
+                hosting fees.
+              </span>
             </form>
 
             <div className={styles.money}>
