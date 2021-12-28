@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import Draggable from 'react-draggable';
-import cn from 'classnames';
+
 import { usdToEth } from '../utils/moneyConversion';
+import cn from 'classnames';
+import Draggable from 'react-draggable';
+
 import styles from './GiftPopover.module.scss';
 
 export default function GiftPopover({

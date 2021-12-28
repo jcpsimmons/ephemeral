@@ -1,5 +1,7 @@
 import React from 'react';
+
 import cn from 'classnames';
+
 import styles from './Header.module.scss';
 
 export default function Header({ account, replyCount }) {

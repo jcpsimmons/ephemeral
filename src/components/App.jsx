@@ -1,13 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import Web3 from 'web3';
-import './App.scss';
+import React, { useEffect, useState } from 'react';
+
 import Thread from '../abis/Thread.json';
-import Header from './molecules/Header.jsx';
 import '@fontsource/ubuntu-mono';
-import NewPost from './molecules/NewPost';
-import ReplyList from './molecules/ReplyList';
+import Web3 from 'web3';
+
 import Scroller from './atoms/Scroller';
 import About from './molecules/About';
+import Header from './molecules/Header.jsx';
+import NewPost from './molecules/NewPost';
+import ReplyList from './molecules/ReplyList';
+
+import './App.scss';
 
 export default function App2() {
   const [isLoading, setIsLoading] = useState(true);

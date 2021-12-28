@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import cn from 'classnames';
-import styles from './Reply.module.scss';
+
 import GiftPopover from './GiftPopover';
 import Tooltip from './Tooltip';
+import cn from 'classnames';
+
+import styles from './Reply.module.scss';
 
 export default function Reply({
   poster,

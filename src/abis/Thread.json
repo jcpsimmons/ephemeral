@@ -189,21 +189,14 @@
   "ast": {
     "absolutePath": "/Users/joshsimmons/Documents/GitHub/ephemeral/src/contracts/Thread.sol",
     "exportedSymbols": {
-      "Thread": [
-        225
-      ]
+      "Thread": [225]
     },
     "id": 226,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 58,
-        "literals": [
-          "solidity",
-          "^",
-          "0.5",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.5", ".0"],
         "nodeType": "PragmaDirective",
         "src": "0:23:1"
       },
@@ -214,9 +207,7 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 225,
-        "linearizedBaseContracts": [
-          225
-        ],
+        "linearizedBaseContracts": [225],
         "name": "Thread",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -1092,10 +1083,7 @@
                       "id": 114,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        243,
-                        244
-                      ],
+                      "overloadedDeclarations": [243, 244],
                       "referencedDeclaration": 243,
                       "src": "831:7:1",
                       "typeDescriptions": {
@@ -1717,10 +1705,7 @@
                       "id": 168,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        243,
-                        244
-                      ],
+                      "overloadedDeclarations": [243, 244],
                       "referencedDeclaration": 243,
                       "src": "1405:7:1",
                       "typeDescriptions": {
@@ -2597,21 +2582,14 @@
   "legacyAST": {
     "absolutePath": "/Users/joshsimmons/Documents/GitHub/ephemeral/src/contracts/Thread.sol",
     "exportedSymbols": {
-      "Thread": [
-        225
-      ]
+      "Thread": [225]
     },
     "id": 226,
     "nodeType": "SourceUnit",
     "nodes": [
       {
         "id": 58,
-        "literals": [
-          "solidity",
-          "^",
-          "0.5",
-          ".0"
-        ],
+        "literals": ["solidity", "^", "0.5", ".0"],
         "nodeType": "PragmaDirective",
         "src": "0:23:1"
       },
@@ -2622,9 +2600,7 @@
         "documentation": null,
         "fullyImplemented": true,
         "id": 225,
-        "linearizedBaseContracts": [
-          225
-        ],
+        "linearizedBaseContracts": [225],
         "name": "Thread",
         "nodeType": "ContractDefinition",
         "nodes": [
@@ -3500,10 +3476,7 @@
                       "id": 114,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        243,
-                        244
-                      ],
+                      "overloadedDeclarations": [243, 244],
                       "referencedDeclaration": 243,
                       "src": "831:7:1",
                       "typeDescriptions": {
@@ -4125,10 +4098,7 @@
                       "id": 168,
                       "name": "require",
                       "nodeType": "Identifier",
-                      "overloadedDeclarations": [
-                        243,
-                        244
-                      ],
+                      "overloadedDeclarations": [243, 244],
                       "referencedDeclaration": 243,
                       "src": "1405:7:1",
                       "typeDescriptions": {
@@ -5012,6 +4982,12 @@
       "links": {},
       "address": "0x6801c0d4EFC85643Ac96b6209E3fa7D5D10b5F02",
       "transactionHash": "0x192d35c54c47f0ce8f6610b57503399c41e460303912fec8e4ff4b6b381cbca6"
+    },
+    "42": {
+      "events": {},
+      "links": {},
+      "address": "0xd83727ca3146df8faf746932c6419933683a70f0",
+      "transactionHash": "0xa5caed3ead981857e1ab5c36a944ecb652867cdbedd2863d7dca482d953d5a20"
     }
   },
   "schemaVersion": "3.0.1",
