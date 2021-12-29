@@ -47,6 +47,21 @@ export default function About({ networkId, contractAddress }) {
               online.
             </p>
 
+            <div
+              className={styles.github}
+              onClick={() =>
+                window.open('https://github.com/jcpsimmons/ephemeral')
+              }
+            >
+              <div>
+                <img
+                  src={`${process.env.PUBLIC_URL}/octopus.gif`}
+                  alt="octopus gif"
+                />
+                <span>View code on GitHub</span>
+              </div>
+            </div>
+
             <h3>
               <i>Disclaimer</i>
             </h3>
