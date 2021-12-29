@@ -82,7 +82,7 @@ export default function App() {
     const replies = [];
     for (let i = howMany; i > -1; i--) {
       const reply = await curThread.methods.replies(i).call();
-      reply.poster !== '0x0000000000000000000000000000000000000000' &&
+      reply?.poster !== '0x0000000000000000000000000000000000000000' &&
         replies.unshift(reply);
     }
 

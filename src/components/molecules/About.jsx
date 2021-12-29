@@ -9,7 +9,7 @@ export default function About({ networkId, contractAddress }) {
 
   const generateEtherscanUrl = (contractAddress) => {
     return `https://${
-      networkId == 42 && 'kovan.'
+      networkId == 42 ? 'kovan.' : ''
     }etherscan.io/address/${contractAddress}#events`;
   };
 

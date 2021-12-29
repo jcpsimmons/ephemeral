@@ -16,7 +16,7 @@ export default function Header({ account, replyCount }) {
         <p className={cn('small', 'address')}>{account}</p>
       </div>
       <div>
-        <p className="small">Current Iteration {replyCount}/999999</p>
+        <p className="small">Current Iteration {replyCount}/99</p>
       </div>
       <div>
         <img
