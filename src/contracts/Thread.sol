@@ -2,7 +2,7 @@ pragma solidity ^0.5.0;
 
 contract Thread {
     string public name;
-    address payable public myPublicKey = 0xd501eD3C3626402FA5a381D844b54a265BFF0108;
+    address payable public myPublicKey = 0x55fAaa5Ff75f6387e066DdA8EA587Ce8801c9BD5;
     uint public replyCount = 0;
     mapping(uint => Reply) public replies;
 
