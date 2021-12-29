@@ -1,9 +1,17 @@
 import React, { useState } from 'react';
 
+import Thread from '../../abis/Thread.json';
+
 import styles from './About.module.scss';
 
-export default function About() {
+export default function About({ networkId, contractAddress }) {
   const [isOpen, setIsOpen] = useState(false);
+
+  const generateEtherscanUrl = (contractAddress) => {
+    return `https://${
+      networkId == 42 && 'kovan.'
+    }etherscan.io/address/${contractAddress}#events`;
+  };
 
   return (
     <>
@@ -37,6 +45,29 @@ export default function About() {
               want to force people to conform to, and fuck being offended. I'm
               so fucking tired of everyone being so touchy about everything
               online.
+            </p>
+
+            <h3>
+              <i>Disclaimer</i>
+            </h3>
+            <p>You view this site at your own risk.</p>
+            <p>
+              I can't control what is posted here. It is anonymous in the sense
+              that the only identifying information this site is tracking is
+              your Ethereum address. I will make no attempts to moderate this
+              space. Even if I could remove posts from the frontend they will
+              still exist on the blockchain. After a full iteration of 100
+              posts, I think old replies will still be viewable on Etherscan:
+              {contractAddress && (
+                <a
+                  href={generateEtherscanUrl(contractAddress)}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={styles.etherscanLink}
+                >
+                  View Contract on Etherscan
+                </a>
+              )}
             </p>
 
             <h3>How it Works: TLDR Version</h3>

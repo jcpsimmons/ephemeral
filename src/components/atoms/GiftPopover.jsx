@@ -28,13 +28,25 @@ export default function GiftPopover({
         from: senderAccount,
         value: window.web3.utils.toWei(ethToSend, 'ether'),
       })
-      .once('confirmation', () => {
-        setTxState('Transaction Confirmed');
-        setTimeout(() => {
-          setIsGiftPopover(false);
-        }, 2000);
+      .on('transactionHash', () => {
+        setTxState('Transaction Sent - Pending Confirmation');
+      })
+      .on('error', () => {
+        updateStatusCloseModal(
+          'There was an error processing your transaction - no ETH was sent. Try again later.'
+        );
+      })
+      .on('confirmation', () => {
+        updateStatusCloseModal('Transaction Confirmed');
       })
       .catch(console.log);
+  };
+
+  const updateStatusCloseModal = (message) => {
+    setTxState(message);
+    setTimeout(() => {
+      setIsGiftPopover(false);
+    }, 2000);
   };
 
   const handleRadioSelect = (e) => {
