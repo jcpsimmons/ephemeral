@@ -1,8 +1,8 @@
 {
-  "name": "eth-marketplace",
+  "name": "ephemeral-board",
   "version": "0.1.0",
-  "description": "An Ethereum Marketplace",
-  "author": "gregory@dappuniversity.com",
+  "description": "Join the conversation",
+  "author": "jcpsimmons@gmail.com",
   "dependencies": {
     "@fontsource/ubuntu-mono": "^4.5.0",
     "babel-polyfill": "6.26.0",

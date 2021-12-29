@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import Thread from '../abis/Thread.json';
+import { dummyReplies } from './utils/fillerData';
 import '@fontsource/ubuntu-mono';
 import Web3 from 'web3';
 
@@ -88,8 +89,13 @@ export default function App() {
 
     const replyCount = await curThread.methods.replyCount().call();
 
-    setReplies(replies);
-    setReplyCount(replyCount);
+    if (replies.length) {
+      setReplies(replies);
+      setReplyCount(replyCount);
+    } else {
+      setReplies(dummyReplies);
+      setReplyCount(1);
+    }
     setIsLoading(false);
   };
 
