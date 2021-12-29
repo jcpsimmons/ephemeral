@@ -10,14 +10,12 @@ contract Thread {
         uint id;
         address payable poster;
         string content;
-        uint weiEarned;
     }
 
     event ReplyAdded(
         uint id,
         address payable poster,
-        string content,
-        uint weiEarned
+        string content
     );
 
     event ReplyFunded(
@@ -39,15 +37,16 @@ contract Thread {
         require(bytes(_content).length > 0 && bytes(_content).length <= 999);
 
         // reset to 0 if reply count too high
-        if(replyCount == 999999) {
+        if(replyCount == 99) {
             replyCount = 0;
+        } else {
+            replyCount++;
         }
-        replyCount ++;
 
         // Create the reply - overwriting as necessary
-        replies[replyCount] = Reply(replyCount, msg.sender, _content, 0);
+        replies[replyCount] = Reply(replyCount, msg.sender, _content);
         // Trigger an event
-        emit ReplyAdded(replyCount, msg.sender, _content, 0);
+        emit ReplyAdded(replyCount, msg.sender, _content);
     }
 
     function payPoster(address payable _to) public payable {
