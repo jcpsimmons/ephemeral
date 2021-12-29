@@ -25,6 +25,8 @@ $$$$$$$  |\$$$$$$  |\$$$$$$$ |$$ |      \$$$$$$$ |
 
 [VISIT](https://ephemeralboard.com/)
 
+![Screen Shot 2021-12-29 at 3 58 26 PM](https://user-images.githubusercontent.com/6600962/147710046-ed933e09-33c3-467b-bd2b-8c236a022cb2.png)
+
 # What is Ephemeral Board?
 
 An anonymous looping message board. Anything can be posted. The board is by design unmoderatable. Users can post a text message up to 999 characters long as a reply in the main thread. After 99 replies, the board is wiped and the 100th reply starts a new iteration. All old replies will still exist in the blockchain as [contract events](https://etherscan.io/address/0xcb48d88b69272323adb6564678d9fd6908dbeae3#events). [Here is the same contract on Kovan that has a bunch of replies](https://kovan.etherscan.io/address/0x48eb092a010cd06d0d9dfd00960cf60724d5a562#events).
